@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.20)
-project(EmptyWindowCpp LANGUAGES CXX)
+project(EmptyWindowCpp LANGUAGES CXX RC)
 
-add_executable(EmptyWindow WIN32 src/main.cpp)
+add_executable(EmptyWindow WIN32 src/main.cpp app.rc)
 target_compile_features(EmptyWindow PRIVATE cxx_std_17)
 target_compile_definitions(EmptyWindow PRIVATE UNICODE _UNICODE)

@@ -1,4 +1,5 @@
 #include <windows.h>
+#include "resource.h"
 
 namespace {
 constexpr wchar_t kWindowClassName[] = L"EmptyWindowCppClass";
@@ -22,6 +23,8 @@ int WINAPI wWinMain(HINSTANCE instance, HINSTANCE, PWSTR, int showCommand) {
     windowClass.lpszClassName = kWindowClassName;
     windowClass.hCursor = LoadCursorW(nullptr, IDC_ARROW);
     windowClass.hbrBackground = reinterpret_cast<HBRUSH>(COLOR_WINDOW + 1);
+    windowClass.hIcon = LoadIconW(instance, MAKEINTRESOURCEW(IDI_APPICON));
+    windowClass.hIconSm = windowClass.hIcon;
 
     if (!RegisterClassExW(&windowClass)) {
         return 1;
